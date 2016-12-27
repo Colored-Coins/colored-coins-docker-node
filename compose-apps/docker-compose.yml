@@ -1,0 +1,45 @@
+version: '2'
+volumes:
+  db-vol:
+  configdb-vol:
+services:
+  mongodb:
+    image: colucom/mongodb-coloredcoins
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    restart: unless-stopped
+    volumes:
+      - db-vol:/data/db
+      - configdb-vol:/data/configdb
+  explorer:
+    build: ../explorer
+    image: explorer
+    env_file: ../explorer/var.env
+    ports: 
+      - "8081:8081"
+      - "8080:8080"
+    expose:
+      - "80"
+      - "443"
+      - "8080"
+      - "8081"
+    links:
+      - mongodb
+    restart: unless-stopped
+  ccd:
+    build: ../ccd
+    image: ccd
+    env_file: ../ccd/var.env
+    ports: 
+      - "8181:8181"
+      - "8180:8180"    
+    expose:
+      - "80"
+      - "443"
+      - "8180"
+      - "8181"
+    links:
+      - explorer
+    restart: unless-stopped
