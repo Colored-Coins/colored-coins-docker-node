@@ -1,3 +1,4 @@
+FROM colucom/nodejs:4.4.6
 # replace this with your application's default port
 EXPOSE 80
 #Uncomment next 2 lines and comment "git clone..." row
