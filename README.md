@@ -57,3 +57,7 @@ See the [Colored Coins API docs](http://coloredcoins.org/documentation/) for *co
 The *block explorer*'s API isn't fully documented yet, but you can get a good idea of what's possible from its source code:  [GET endpoints](https://github.com/Colored-Coins/Colored-Coins-Block-Explorer/blob/master/routes/GET-public.json) and [POST endpoints](https://github.com/Colored-Coins/Colored-Coins-Block-Explorer/blob/master/routes/POST-public.json).
 
 Remember to use the correct port numbers for each, as defined in the `Configuration` step.
+
+## License
+
+[Apache-2.0](http://www.apache.org/licenses/LICENSE-2.0)
